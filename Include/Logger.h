@@ -4,7 +4,7 @@
 class Logger
 {
 public:
-    Logger();
+    Logger() = default;
 };
 
 #endif //KOORI_LOGGER_LOGGER_H
