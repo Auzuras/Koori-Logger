@@ -10,7 +10,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(KooriLogger INTERFACE
         Include/Logger.h
         Tests/UnitTests/Code/Source/main.cpp
-        Include/Utils/LoggerTime.h)
+        Include/Utils/LoggerTime.h
+        Include/Exceptions/Exception.h
+        Include/Exceptions/OutOfRangeException.h)
 
 target_include_directories(KooriLogger INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include> $<INSTALL_INTERFACE:Include>)
 
