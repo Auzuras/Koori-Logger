@@ -12,7 +12,8 @@ add_library(KooriLogger INTERFACE
         Tests/UnitTests/Code/Source/main.cpp
         Include/Utils/LoggerTime.h
         Include/Exceptions/Exception.h
-        Include/Exceptions/OutOfRangeException.h)
+        Include/Exceptions/OutOfRangeException.h
+        Include/Logging/LogChannels.h)
 
 target_include_directories(KooriLogger INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include> $<INSTALL_INTERFACE:Include>)
 
