@@ -1,10 +1,11 @@
 #include <gtest/gtest.h>
 
 #include <Logger.h>
+#include <Utils/LoggerTime.h>
 
 class LoggerTest : public testing::Test {};
 
-TEST(LoggerTest, Logs)
+TEST(LoggerTest, Date)
 {
-    Logger log;
+    LogTime time = LogTime::GetLocalTime();
 }
