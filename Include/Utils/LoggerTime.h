@@ -7,13 +7,13 @@ struct tm;
 
 struct LogTime
 {
-    uint8_t day;
-    uint8_t month;
-    uint8_t year;
+    uint8_t day = 0u;
+    uint8_t month = 0u;
+    uint8_t year = 0u;
 
-    uint8_t hour;
-    uint8_t minute;
-    uint8_t second;
+    uint8_t hour = 0u;
+    uint8_t minute = 0u;
+    uint8_t second = 0u;
 
     LogTime(const tm& _time);
 
