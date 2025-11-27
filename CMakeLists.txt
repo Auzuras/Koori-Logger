@@ -7,20 +7,11 @@ option(KOORI_LOGGER_TEST_OPT "Build Koori Logger tests" ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(KooriLogger INTERFACE
-        Include/Logger.h
-        Include/Utils/LoggerTime.h
-        Include/Exceptions/Exception.h
-        Include/Exceptions/OutOfRangeException.h
-        Include/Logging/LogChannels.h
-        Include/Logging/Log.h
-        Include/Macros/Assert.h
-        Include/Logging/LogSeverity.h
-        Include/Output/LogOutput.h
-        Include/Output/FileOutput.h
-        Include/Output/ConsoleOutput.h)
+file(GLOB_RECURSE KOORI_LOGGER_SOURCES "Source/*.cpp")
 
-target_include_directories(KooriLogger INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include> $<INSTALL_INTERFACE:Include>)
+add_library(KooriLogger STATIC ${KOORI_LOGGER_SOURCES})
+
+target_include_directories(KooriLogger PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Include)
 
 if(KOORI_LOGGER_TEST_OPT)
 
