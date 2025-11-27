@@ -7,4 +7,5 @@ Log::Log(LogSeverity severity, std::string _channel, std::wstring _message, std:
 
 std::wstring Log::ToWString()
 {
+    return L"Test";
 }
