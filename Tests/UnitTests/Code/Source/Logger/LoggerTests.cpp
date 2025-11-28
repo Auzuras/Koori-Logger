@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 
-#include <Logger.h>
 #include <source_location>
 #include <Logging/Log.h>
 #include <Utils/LoggerTime.h>

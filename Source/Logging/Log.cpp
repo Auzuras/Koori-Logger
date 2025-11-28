@@ -11,6 +11,13 @@ std::wstring Log::ToWString() const
     std::wstring channelName(channel.begin(), channel.end());
     std::wstring function(functionName.begin(), functionName.end());
 
+    /*
+     * Create a string in the following format
+     *
+     * [dd/mm/yyyy - hh/mm/ss] | Severity - Channel
+     * {file:line - function} Main message
+     * Details: details (optional)
+     */
 
     result += L"[" + std::to_wstring(time.day) + L"/" + std::to_wstring(time.month) + L"/" + std::to_wstring(time.year);
     result += L" - " + std::to_wstring(time.hour) + L":" + std::to_wstring(time.minute) + L":" + std::to_wstring(time.second) + L"]";
