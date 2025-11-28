@@ -1,11 +1,25 @@
 #include <Logging/Log.h>
 
-Log::Log(LogSeverity severity, std::string _channel, std::wstring _message, std::wstring _fileName, std::string _functionName, uint32_t _lineNumber, LogTime _time)
-    : severity(severity), channel(_channel), message(_message), fileName(_fileName), functionName(_functionName), lineNumber(_lineNumber), time(_time)
+Log::Log(const LogSeverity _severity, std::string _channel, std::wstring _message, std::wstring _details, std::wstring _fileName, std::string _functionName, const uint32_t _lineNumber, const LogTime& _time)
+    : severity(_severity), channel(_channel), message(_message), details(_details), fileName(_fileName), functionName(_functionName), lineNumber(_lineNumber), time(_time)
 {
 }
 
-std::wstring Log::ToWString()
+std::wstring Log::ToWString() const
 {
-    return L"Test";
+    std::wstring result = L"";
+    std::wstring channelName(channel.begin(), channel.end());
+    std::wstring function(functionName.begin(), functionName.end());
+
+
+    result += L"[" + std::to_wstring(time.day) + L"/" + std::to_wstring(time.month) + L"/" + std::to_wstring(time.year);
+    result += L" - " + std::to_wstring(time.hour) + L":" + std::to_wstring(time.minute) + L":" + std::to_wstring(time.second) + L"]";
+    result += L" | " + LogSeverityToWString(severity) + L" - " ;
+    result += channelName + L'\n';
+    result += L'{' + fileName + L':' + std::to_wstring(lineNumber) + L" - " + function + L"} " +  message + L'\n';
+
+    if (!details.empty())
+        result += L"Details: " + details + L'\n';
+
+    return result;
 }

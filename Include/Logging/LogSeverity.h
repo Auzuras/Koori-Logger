@@ -17,4 +17,31 @@ enum class LogSeverity : uint32_t
     KL_FATAL        = 0x1 << 0x9
 };
 
+static inline std::wstring LogSeverityToWString(LogSeverity severity)
+{
+    switch (severity)
+    {
+        case LogSeverity::KL_DEFAULT: default:
+            return L"Default";
+        case LogSeverity::KL_TRACE:
+            return L"Trace";
+        case LogSeverity::KL_DEBUG:
+            return L"Debug";
+        case LogSeverity::KL_WARNING:
+            return L"Warning";
+        case LogSeverity::KL_ERROR:
+            return L"Error";
+        case LogSeverity::KL_SUCCESS:
+            return L"Success";
+        case LogSeverity::KL_FAIL:
+            return L"Fail";
+        case LogSeverity::KL_LOADING:
+            return L"Loading";
+        case LogSeverity::KL_PROCESSING:
+            return L"Processing";
+        case LogSeverity::KL_FATAL:
+            return L"Fatal";
+    }
+}
+
 #endif //KOORI_LOGGER_LOGSEVERITY_H
