@@ -13,6 +13,8 @@ public:
     Log(const LogSeverity _severity, std::string _channel, std::wstring _message, std::wstring _details, std::wstring _fileName, std::string _functionName, const uint32_t _lineNumber, const LogTime& _time);
     ~Log() = default;
 
+    std::wstring ToWString() const;
+
     LogSeverity severity = LogSeverity::KL_TRACE;
     std::string channel = "Default";
 
@@ -24,8 +26,6 @@ public:
     uint32_t lineNumber = 0u;
 
     LogTime time;
-
-    std::wstring ToWString() const;
 };
 
 #endif //KOORI_LOGGER_LOG_H

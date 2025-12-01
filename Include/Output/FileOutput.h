@@ -1,11 +1,12 @@
 #ifndef KOORI_LOGGER_FILEOUTPUT_H
 #define KOORI_LOGGER_FILEOUTPUT_H
 
-#include <Output/FileOuput.h>
+#include <Output/ILogOutput.h>
 
-class FileOutput : public LogOutput
+class FileOutput : public ILogOutput
 {
-
+    FileOutput() = default;
+    ~FileOutput() override;
 };
 
 #endif //KOORI_LOGGER_FILEOUTPUT_H

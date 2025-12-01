@@ -9,7 +9,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB_RECURSE KOORI_LOGGER_SOURCES "Source/*.cpp")
 
-add_library(KooriLogger STATIC ${KOORI_LOGGER_SOURCES})
+add_library(KooriLogger STATIC ${KOORI_LOGGER_SOURCES}
+        Source/Logger.cpp
+        Source/Output/ConsoleOutput.cpp)
 
 target_include_directories(KooriLogger PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Include)
 

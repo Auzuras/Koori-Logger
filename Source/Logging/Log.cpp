@@ -28,5 +28,7 @@ std::wstring Log::ToWString() const
     if (!details.empty())
         result += L"Details: " + details + L'\n';
 
+    result += L'\n';
+
     return result;
 }

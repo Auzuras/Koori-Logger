@@ -2,6 +2,7 @@
 #define KOORI_LOGGER_LOGSEVERITY_H
 
 #include <cstdint>
+#include <string>
 
 enum class LogSeverity : uint32_t
 {
