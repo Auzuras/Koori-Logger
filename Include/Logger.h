@@ -2,7 +2,7 @@
 #define KOORI_LOGGER_LOGGER_H
 
 #include <Logging/Log.h>
-#include <Output/ILogOutput.h>
+#include <Output/ALogOutput.h>
 
 #include <vector>
 
@@ -15,17 +15,17 @@ public:
     void RegisterLog(const Log& _log);
 
     template <typename T>
-    ILogOutput* AddLogOuput()
+    ALogOutput* AddLogOuput()
     {
-        ILogOutput* output = new T();
+        ALogOutput* output = new T();
         m_LogOutputs.push_back(output);
         return output;
     }
 
-    void RemoveLogOuput(ILogOutput* _output);
+    void RemoveLogOuput(ALogOutput* _output);
 
 private:
-    std::vector<ILogOutput*> m_LogOutputs{};
+    std::vector<ALogOutput*> m_LogOutputs{};
 
 };
 

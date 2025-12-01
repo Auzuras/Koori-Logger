@@ -2,14 +2,14 @@
 
 void Logger::RegisterLog(const Log& _log)
 {
-    for (ILogOutput* output : m_LogOutputs)
+    for (ALogOutput* output : m_LogOutputs)
         output->WriteLog(_log);
 }
 
-void Logger::RemoveLogOuput(ILogOutput *_output)
+void Logger::RemoveLogOuput(ALogOutput *_output)
 {
     size_t index = 0;
-    for (ILogOutput* output : m_LogOutputs)
+    for (ALogOutput* output : m_LogOutputs)
     {
         ++index;
         if (output != _output)

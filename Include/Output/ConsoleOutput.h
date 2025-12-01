@@ -1,9 +1,9 @@
 #ifndef KOORI_LOGGER_CONSOLEOUTPUT_H
 #define KOORI_LOGGER_CONSOLEOUTPUT_H
 
-#include <Output/ILogOutput.h>
+#include <Output/ALogOutput.h>
 
-class ConsoleOutput : public ILogOutput
+class ConsoleOutput : public ALogOutput
 {
 public:
     ConsoleOutput() = default;

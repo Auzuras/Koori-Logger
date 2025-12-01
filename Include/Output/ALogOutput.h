@@ -3,11 +3,11 @@
 
 #include <Logging/Log.h>
 
-class ILogOutput
+class ALogOutput
 {
 public:
-    ILogOutput() = default;
-    virtual ~ILogOutput() = default;
+    ALogOutput() = default;
+    virtual ~ALogOutput() = default;
 
     virtual void WriteLog(const Log& _log) = 0;
 };
