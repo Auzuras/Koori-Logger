@@ -10,7 +10,7 @@
 class Log
 {
 public:
-    Log(const LogSeverity _severity, std::string _channel, std::wstring _message, std::wstring _details, std::wstring _fileName, std::string _functionName, const uint32_t _lineNumber, const LogTime& _time);
+    Log(const LogSeverity _severity, std::string _channel, std::wstring _message, std::wstring _details, std::string _fileName, std::string _functionName, const uint32_t _lineNumber, const LogTime& _time);
     ~Log() = default;
 
     std::wstring ToWString() const;
@@ -21,7 +21,7 @@ public:
     std::wstring message = L"Hello World!";
     std::wstring details = L"Some details";
 
-    std::wstring fileName = L"main.cpp";
+    std::string fileName = "main.cpp";
     std::string functionName = "main";
     uint32_t lineNumber = 0u;
 

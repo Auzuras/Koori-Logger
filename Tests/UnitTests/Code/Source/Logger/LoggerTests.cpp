@@ -14,10 +14,11 @@ TEST(LoggerTest, Test)
     ALogOutput* cOut = logger.AddLogOuput<ConsoleOutput>();
     ALogOutput* fOut = logger.AddLogOuput<FileOutput>();
 
-    Log log(LogSeverity::KL_DEBUG, "test", L"IDK", L"", L"File", KOORI_FUNCTION, __LINE__, LogTime::GetLocalTime());
+    Log log(LogSeverity::KL_DEBUG, "test", L"IDK", L"", __FILE__, KOORI_FUNCTION, __LINE__, LogTime::GetLocalTime());
     logger.RegisterLog(log);
 
-    log = Log(LogSeverity::KL_ERROR, "Vulkan", L"Swap chain error", L"Lot of errors", L"File", KOORI_FUNCTION, __LINE__, LogTime::GetLocalTime());
+    // __FILE_NAME__ is non standard (Is not msvc friendly)
+    log = Log(LogSeverity::KL_ERROR, "Vulkan", L"Swap chain error", L"Lot of errors", __FILE_NAME__, KOORI_FUNCTION, __LINE__, LogTime::GetLocalTime());
     logger.RegisterLog(log);
 
     logger.RemoveLogOuput(fOut);
