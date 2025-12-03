@@ -16,7 +16,8 @@ std::wstring Log::ToWString() const
      * Create a string in the following format
      *
      * [dd/mm/yyyy - hh/mm/ss] | Severity - Channel
-     * {file:line - function} Main message
+     * {file:line - function} 
+     * Message: Main message
      * Details: details (optional)
      */
 
@@ -24,7 +25,8 @@ std::wstring Log::ToWString() const
     result += L" - " + std::to_wstring(time.hour) + L":" + std::to_wstring(time.minute) + L":" + std::to_wstring(time.second) + L"]";
     result += L" | " + LogSeverityToWString(severity) + L" - " ;
     result += channelName + L'\n';
-    result += L'{' + file + L':' + std::to_wstring(lineNumber) + L" - " + function + L"} " +  message + L'\n';
+    result += L'{' + file + L':' + std::to_wstring(lineNumber) + L" - " + function + L"}\n";
+    result += L"Message: " + message + L'\n';
 
     if (!details.empty())
         result += L"Details: " + details + L'\n';
