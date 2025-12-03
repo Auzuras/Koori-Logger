@@ -10,7 +10,7 @@ FileOutput::~FileOutput()
     CloseLogFile();
 }
 
-void FileOutput::WriteLog(const Log &_log)
+void FileOutput::WriteLog(const Log& _log)
 {
     m_LogFile << _log.ToWString();
 }

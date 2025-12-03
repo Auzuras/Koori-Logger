@@ -2,6 +2,7 @@
 #define KOORI_LOGGER_ILOGOUTPUT_H
 
 #include <Logging/Log.h>
+#include <Logging/LogSeverity.h>
 
 class ALogOutput
 {
@@ -10,6 +11,11 @@ public:
     virtual ~ALogOutput() = default;
 
     virtual void WriteLog(const Log& _log) = 0;
+
+protected:
+
+    LogSeverity p_Severity = LogSeverity::KL_DEFAULT;
+    // TODO: Add channel
 };
 
 #endif //KOORI_LOGGER_ILOGOUTPUT_H

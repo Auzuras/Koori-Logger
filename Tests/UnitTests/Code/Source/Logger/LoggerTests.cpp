@@ -18,7 +18,6 @@ TEST(LoggerTest, Test)
     Log log(LogSeverity::KL_DEBUG, "test", L"IDK", L"", KOORI_FILE, KOORI_FUNCTION, __LINE__, LogTime::GetLocalTime());
     logger.RegisterLog(log);
 
-    // __FILE_NAME__ is non standard (Is not msvc friendly)
     log = Log(LogSeverity::KL_ERROR, "Vulkan", L"Swap chain error", L"Lot of errors", KOORI_FILE, KOORI_FUNCTION, __LINE__, LogTime::GetLocalTime());
     logger.RegisterLog(log);
 

@@ -5,7 +5,7 @@
 
 #else // KOORI_ASSERTIONS_ENABLED
 
-#define KOORI_ASSERT(expr)
+	#define KOORI_ASSERT(expr)
 
 #endif // KOORI_ASSERTIONS_ENABLED
 

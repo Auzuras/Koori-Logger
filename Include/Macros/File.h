@@ -3,15 +3,15 @@
 
 #if defined(_MSC_VER)
 
-#define KOORI_FILE __FILE__
+	#define KOORI_FILE __FILE__
 
 #elif defined(__GNUG__)
 
-#define KOORI_FILE __FILE_NAME__
+	#define KOORI_FILE __FILE_NAME__
 
 #else
 
-#define	KOORI_FILE __FILE__ 
+	#define	KOORI_FILE __FILE__ 
 
 #endif
 
