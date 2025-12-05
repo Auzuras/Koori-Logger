@@ -3,6 +3,7 @@
 
 #include <Logging/Log.h>
 #include <Logging/LogSeverity.h>
+#include <Logging/LogChannels.h>
 
 class ALogOutput
 {
@@ -15,7 +16,7 @@ public:
 protected:
 
     LogSeverity p_Severity = LogSeverity::KL_DEFAULT;
-    // TODO: Add channel
+    LogChannel p_Channels;
 };
 
 #endif //KOORI_LOGGER_ILOGOUTPUT_H
