@@ -14,7 +14,7 @@ std::wstring Log::ToWString() const
     /*
      * Create a string in the following format
      *
-     * [dd/mm/yyyy - hh:mm:ss] [SEVERITY] [file:line function] 
+     * [dd/mm/yyyy - hh:mm:ss] [SEVERITY] - [file:line function] 
      * [Channel]: Main message
      * Details: details (optional)
      */
