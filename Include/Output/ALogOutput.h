@@ -15,7 +15,7 @@ public:
 
 protected:
 
-    LogSeverity p_Severity = LogSeverity::KL_DEFAULT;
+    LogSeverity p_Severity = LogSeverity::KL_TRACE;
     LogChannel p_Channels;
 };
 

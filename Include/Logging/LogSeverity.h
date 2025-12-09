@@ -6,25 +6,22 @@
 
 enum class LogSeverity : uint32_t
 {
-    KL_DEFAULT      = 0x1 << 0x0,
-    KL_TRACE        = 0x1 << 0x1,
-    KL_DEBUG        = 0x1 << 0x2,
-    KL_WARNING      = 0x1 << 0x3,
-    KL_ERROR        = 0x1 << 0x4,
-    KL_SUCCESS      = 0x1 << 0x5,
-    KL_FAIL         = 0x1 << 0x6,
-    KL_LOADING      = 0x1 << 0x7,
-    KL_PROCESSING   = 0x1 << 0x8,
-    KL_FATAL        = 0x1 << 0x9
+    KL_TRACE        = 0x1 << 0x0,
+    KL_DEBUG        = 0x1 << 0x1,
+    KL_WARNING      = 0x1 << 0x2,
+    KL_ERROR        = 0x1 << 0x3,
+    KL_SUCCESS      = 0x1 << 0x4,
+    KL_FAIL         = 0x1 << 0x5,
+    KL_LOADING      = 0x1 << 0x6,
+    KL_PROCESSING   = 0x1 << 0x7,
+    KL_FATAL        = 0x1 << 0x8
 };
 
 static inline std::wstring LogSeverityToWString(LogSeverity severity)
 {
     switch (severity)
     {
-        case LogSeverity::KL_DEFAULT: default:
-            return L"DEFAULT";
-        case LogSeverity::KL_TRACE:
+        case LogSeverity::KL_TRACE: default:
             return L"TRACE";
         case LogSeverity::KL_DEBUG:
             return L"DEBUG";
