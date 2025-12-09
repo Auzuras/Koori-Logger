@@ -7,26 +7,24 @@ Log::Log(const LogSeverity _severity, std::string _channel, std::wstring _messag
 
 std::wstring Log::ToWString() const
 {
-    std::wstring result = L"";
-    std::wstring channelName(channel.begin(), channel.end());
-    std::wstring function(functionName.begin(), functionName.end());
-    std::wstring file(fileName.begin(), fileName.end());
+    const std::wstring channelName(channel.begin(), channel.end());
+    const std::wstring function(functionName.begin(), functionName.end());
+    const std::wstring file(fileName.begin(), fileName.end());
 
     /*
      * Create a string in the following format
      *
-     * [dd/mm/yyyy - hh/mm/ss] | Severity - Channel
-     * {file:line - function} 
-     * Message: Main message
+     * [dd/mm/yyyy - hh/mm/ss] [SEVERITY] [file:line function] 
+     * [Channel]: Main message
      * Details: details (optional)
      */
 
-    result += L"[" + std::to_wstring(time.day) + L"/" + std::to_wstring(time.month) + L"/" + std::to_wstring(time.year);
-    result += L" - " + std::to_wstring(time.hour) + L":" + std::to_wstring(time.minute) + L":" + std::to_wstring(time.second) + L"]";
-    result += L" | " + LogSeverityToWString(severity) + L" - " ;
-    result += channelName + L'\n';
-    result += L'{' + file + L':' + std::to_wstring(lineNumber) + L" - " + function + L"}\n";
-    result += L"Message: " + message + L'\n';
+    std::wstring result = L'[' + std::to_wstring(time.day) + L'/' + std::to_wstring(time.month) + L'/' + std::to_wstring(time.year);
+    result += L' ' + std::to_wstring(time.hour) + L':' + std::to_wstring(time.minute) + L':' + std::to_wstring(time.second) + L"] ";
+    result += L'[' + LogSeverityToWString(severity) + L"] ";
+    result += L'[' + file + L':' + std::to_wstring(lineNumber) + L" - " + function + L"]\n";
+
+    result += L'[' + channelName + L"]: " + message + L'\n';
 
     if (!details.empty())
         result += L"Details: " + details + L'\n';

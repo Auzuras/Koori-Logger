@@ -23,25 +23,25 @@ static inline std::wstring LogSeverityToWString(LogSeverity severity)
     switch (severity)
     {
         case LogSeverity::KL_DEFAULT: default:
-            return L"Default";
+            return L"DEFAULT";
         case LogSeverity::KL_TRACE:
-            return L"Trace";
+            return L"TRACE";
         case LogSeverity::KL_DEBUG:
-            return L"Debug";
+            return L"DEBUG";
         case LogSeverity::KL_WARNING:
-            return L"Warning";
+            return L"WARNING";
         case LogSeverity::KL_ERROR:
-            return L"Error";
+            return L"ERROR";
         case LogSeverity::KL_SUCCESS:
-            return L"Success";
+            return L"SUCCESS";
         case LogSeverity::KL_FAIL:
-            return L"Fail";
+            return L"FAIL";
         case LogSeverity::KL_LOADING:
-            return L"Loading";
+            return L"LOADING";
         case LogSeverity::KL_PROCESSING:
-            return L"Processing";
+            return L"PROCESSING";
         case LogSeverity::KL_FATAL:
-            return L"Fatal";
+            return L"FATAL";
     }
 }
 

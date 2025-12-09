@@ -17,7 +17,7 @@ void FileOutput::WriteLog(const Log& _log)
 
 void FileOutput::OpenLogFile()
 {
-    m_LogFile.open("LogTest.txt");
+    m_LogFile.open("LogTest.log");
 }
 
 void FileOutput::CloseLogFile()
