@@ -1,11 +1,9 @@
 #ifndef KOORI_LOGGER_FILE_H
 #define KOORI_LOGGER_FILE_H
 
-#include <string.h>
-
 #if defined(__GNUG__)
 
-	#define KOORI_FILE FileFromPath(__FILE__)
+	#define KOORI_FILE __FILE_NAME__
 
 #else
 

@@ -10,11 +10,12 @@
 class Log
 {
 public:
-    Log(const LogSeverity _severity, std::wstring _channel, std::wstring _message, std::wstring _details, std::string _fileName, std::string _functionName, const uint32_t _lineNumber, const LogTime& _time);
+    Log(LogSeverity _severity, std::wstring _channel, std::wstring _message, std::wstring _details, std::string _fileName, std::string _functionName, uint32_t _lineNumber, const LogTime& _time);
     ~Log() = default;
 
-    std::wstring ToWString() const;
+    [[nodiscard]] std::wstring ToWString() const;
 
+public:
     LogSeverity severity = LogSeverity::KL_TRACE;
     std::wstring channel = L"Default";
 
