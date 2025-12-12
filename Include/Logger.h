@@ -15,14 +15,14 @@ public:
     void RegisterLog(const Log& _log);
 
     template <typename T>
-    ALogOutput* AddLogOuput()
+    ALogOutput* AddLogOutput()
     {
         ALogOutput* output = new T();
         m_LogOutputs.push_back(output);
         return output;
     }
 
-    void RemoveLogOuput(ALogOutput* _output);
+    void RemoveLogOutput(ALogOutput* _output);
 
 private:
     std::vector<ALogOutput*> m_LogOutputs{};

@@ -6,7 +6,7 @@ void Logger::RegisterLog(const Log& _log)
         output->WriteLog(_log);
 }
 
-void Logger::RemoveLogOuput(ALogOutput *_output)
+void Logger::RemoveLogOutput(ALogOutput *_output)
 {
     size_t index = 0;
     for (ALogOutput* output : m_LogOutputs)
