@@ -17,6 +17,7 @@ void FileOutput::WriteLog(const Log& _log)
 
 void FileOutput::OpenLogFile()
 {
+    // TODO: Change the hardcoded file path
     m_LogFile.open("LogTest.log");
 }
 

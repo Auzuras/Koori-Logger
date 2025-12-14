@@ -1,22 +1,44 @@
-#ifndef KOORI_LOGGER_ILOGOUTPUT_H
-#define KOORI_LOGGER_ILOGOUTPUT_H
+#ifndef KOORI_LOGGER_ALOGOUTPUT_H
+#define KOORI_LOGGER_ALOGOUTPUT_H
 
 #include <Logging/Log.h>
 #include <Logging/LogSeverity.h>
 #include <Logging/LogChannels.h>
 
+/**
+ * Abstract base class for logging output
+ */
 class ALogOutput
 {
 public:
+
+    /**
+     * Default ALogOutput's constructor
+     */
     ALogOutput() = default;
+
+    /**
+     * Default ALogOutput's destructor
+     */
     virtual ~ALogOutput() = default;
 
+    /**
+     * Write a new log in the output
+     * @param _log Reference of the log that should be written
+     */
     virtual void WriteLog(const Log& _log) = 0;
 
 protected:
 
+    /**
+     * Minimal log severity of the output
+     */
     LogSeverity p_Severity = LogSeverity::KL_TRACE;
+
+    /**
+     * List of the channels writting in the output
+     */
     LogChannel p_Channels;
 };
 
-#endif //KOORI_LOGGER_ILOGOUTPUT_H
+#endif //KOORI_LOGGER_ALOGOUTPUT_H

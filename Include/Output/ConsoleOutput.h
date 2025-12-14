@@ -3,12 +3,27 @@
 
 #include <Output/ALogOutput.h>
 
+/**
+ * Console Output override of the Log Output abstract class
+ */
 class ConsoleOutput : public ALogOutput
 {
 public:
-    ConsoleOutput() = default;
-    ~ConsoleOutput() override;
 
+    /**
+     * Default ConsoleOutput's constructor
+     */
+    ConsoleOutput() = default;
+
+    /**
+     * Override of the ConsoleOutput destructor
+     */
+    ~ConsoleOutput() override = default;
+
+    /**
+     * Write a log in a console output
+     * @param _log Reference of the log that should be written in the console
+     */
     void WriteLog(const Log& _log) override;
 };
 
