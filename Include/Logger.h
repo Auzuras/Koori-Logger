@@ -12,7 +12,7 @@ public:
     Logger() = default;
     virtual ~Logger() = default;
 
-    void RegisterLog(const Log& _log);
+    void Logging(const Log& _log) const;
 
     template <typename T>
     ALogOutput* AddLogOutput()
@@ -22,7 +22,7 @@ public:
         return output;
     }
 
-    void RemoveLogOutput(ALogOutput* _output);
+    void RemoveLogOutput(const ALogOutput* _output);
 
 private:
     std::vector<ALogOutput*> m_LogOutputs{};

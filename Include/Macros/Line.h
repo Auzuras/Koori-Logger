@@ -1,0 +1,6 @@
+#ifndef KOORI_LOGGER_LINE_H
+#define KOORI_LOGGER_LINE_H
+
+#define KOORI_LINE __LINE__
+
+#endif //KOORI_LOGGER_LINE_H

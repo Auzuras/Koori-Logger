@@ -12,7 +12,8 @@ file(GLOB_RECURSE KOORI_LOGGER_SOURCES "Source/*.cpp")
 add_library(KooriLogger STATIC ${KOORI_LOGGER_SOURCES}
         Source/Logger.cpp
         Source/Output/ConsoleOutput.cpp
-        Source/Output/FileOutput.cpp)
+        Source/Output/FileOutput.cpp
+        Include/Macros/Line.h)
 
 target_include_directories(KooriLogger PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Include)
 
