@@ -6,25 +6,53 @@
 
 #include <vector>
 
+/**
+ * Base Logger class (Not thread safe)
+ */
 class Logger
 {
 public:
+
+    /**
+     * Default Logger's constructor
+     */
     Logger() = default;
+
+    /**
+     * Default Logger's destructor
+     */
     virtual ~Logger() = default;
 
+    /**
+     * Logging function printing a log message in each registered output of the logger
+     * @param _log Log reference that should be printed
+     */
     void Logging(const Log& _log) const;
 
+    /**
+     * Add a new log output in the logger
+     * @tparam T Type of the log output
+     * @return A pointer on the created output
+     */
     template <typename T>
     ALogOutput* AddLogOutput()
     {
         ALogOutput* output = new T();
-        m_LogOutputs.push_back(output);
+        m_LogOutputs.emplace_back(output);
         return output;
     }
 
+    /**
+     * Remove a log output specified in parameter
+     * @param _output Pointer on the log output that should be deleted
+     */
     void RemoveLogOutput(const ALogOutput* _output);
 
 private:
+
+    /**
+     * Vector of all the registered log outputs
+     */
     std::vector<ALogOutput*> m_LogOutputs{};
 
 };
