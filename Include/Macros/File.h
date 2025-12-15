@@ -3,14 +3,28 @@
 
 #if defined(__GNUG__)
 
+	/*
+	 * GNUG Version of the KOORI_FILE MACRO
+	 * Return the name of the file where this macro is called
+	 */
 	#define KOORI_FILE __FILE_NAME__
 
 #else
 
+	/*
+	 * Global Version of the KOORI_FILE MACRO
+	 * Return the name of the file where this macro is called
+	 */
 	#define	KOORI_FILE FileFromPath(__FILE__) 
 
 #endif
 
+/**
+ * Retrieve the name of the file from a complete path
+ * Remove all // \\ in the path
+ * @param _filePath Path of the file
+ * @return The name of the file contained in the given path
+ */
 static const char* FileFromPath(const char* _filePath)
 {
 	// strrchr returns the text with the last occurrence of a certain character
