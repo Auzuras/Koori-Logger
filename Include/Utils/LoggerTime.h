@@ -2,6 +2,7 @@
 #define KOORI_LOGGER_LOGGERTIME_H
 
 #include <cstdint>
+#include <string>
 
 struct tm;
 
@@ -18,6 +19,8 @@ struct LogTime
     LogTime(const tm& _time);
 
     static LogTime GetLocalTime();
+
+    [[nodiscard]] std::wstring ToWString() const;
 };
 
 #endif //KOORI_LOGGER_LOGGERTIME_H

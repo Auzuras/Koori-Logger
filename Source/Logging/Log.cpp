@@ -19,9 +19,8 @@ std::wstring Log::ToWString() const
      * Details: details (optional)
      */
 
-    std::wstring result = L'[' + std::format(L"{:02}/{:02}/{:04}", time.day, time.month, time.year);
-    result += L" - " + std::format(L"{:02}:{:02}:{:02}", time.hour, time.minute, time.second) + L"] ";
-    result += L'[' + LogSeverityToWString(severity) + L"] ";
+    std::wstring result = time.ToWString();
+    result += L" [" + LogSeverityToWString(severity) + L"] ";
     result += L'[' + file + L':' + std::to_wstring(lineNumber) + L" - " + function + L"]\n";
 
     result += L'[' + channel + L"]: " + message + L'\n';
