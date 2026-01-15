@@ -16,7 +16,7 @@ struct LogTime
     uint8_t minute = 0u;
     uint8_t second = 0u;
 
-    explicit LogTime(const tm& _time);
+    LogTime(const tm& _time);
 
     static LogTime GetLocalTime();
 

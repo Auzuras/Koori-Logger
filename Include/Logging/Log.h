@@ -27,6 +27,20 @@ public:
      */
     Log(LogSeverity _severity, std::wstring& _channel, std::wstring& _message, std::wstring& _details, std::string& _fileName, std::string& _functionName, uint32_t _lineNumber, const LogTime& _time);
 
+
+    /**
+     * Main log class constructor
+     * @param _severity Severity of the log
+     * @param _channel Channel of the log
+     * @param _message Message of the log
+     * @param _details Details of the log
+     * @param _fileName File of the log
+     * @param _functionName Function of the log
+     * @param _lineNumber Line of the log
+     * @param _time Time of the log
+     */
+    Log(LogSeverity _severity, std::wstring&& _channel, std::wstring&& _message, std::wstring&& _details, std::string&& _fileName, std::string&& _functionName, uint32_t _lineNumber, const LogTime& _time);
+
     /**
      * Default Log's destructor
      */
