@@ -27,10 +27,10 @@ std::wstring Log::ToWString() const
      */
 
     std::wstring result = time.ToWString();
-    result += L" [" + LogSeverityToWString(severity) + L"] ";
-    result += L'[' + file + L':' + std::to_wstring(lineNumber) + L" - " + function + L"]\n";
 
-    result += L'[' + channel + L"]: " + message + L'\n';
+    result += std::format(L" [{}{}{}] ", L"\033[31m", LogSeverityToWString(severity), L"\033[0m");
+    result += std::format(L"[{}:{} - {}]\n", file, std::to_wstring(lineNumber), function);
+    result += std::format(L"[{}]: {}{}{}\n", channel, L"\033[31m", message, L"\033[0m");
 
     if (!details.empty())
         result += L"Details: " + details + L'\n';
