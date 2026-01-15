@@ -1,5 +1,5 @@
-#ifndef KOORI_LOGGER_LOGGERTIME_H
-#define KOORI_LOGGER_LOGGERTIME_H
+#ifndef KOORI_LOGGER_LOGGER_TIME_H
+#define KOORI_LOGGER_LOGGER_TIME_H
 
 #include <cstdint>
 #include <string>
@@ -16,11 +16,11 @@ struct LogTime
     uint8_t minute = 0u;
     uint8_t second = 0u;
 
-    LogTime(const tm& _time);
+    explicit LogTime(const tm& _time);
 
     static LogTime GetLocalTime();
 
     [[nodiscard]] std::wstring ToWString() const;
 };
 
-#endif //KOORI_LOGGER_LOGGERTIME_H
+#endif //KOORI_LOGGER_LOGGER_TIME_H
