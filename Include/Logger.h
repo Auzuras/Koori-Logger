@@ -57,4 +57,6 @@ private:
 
 };
 
+inline Logger G_DEFAULT_LOGGER = Logger();
+
 #endif //KOORI_LOGGER_LOGGER_H

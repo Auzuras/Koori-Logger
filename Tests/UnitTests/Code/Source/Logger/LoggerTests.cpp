@@ -1,27 +1,21 @@
 #include <gtest/gtest.h>
 
-#include <Logger.h>
+#include <Macros/LogMacro.h>
+
 #include <Output/ConsoleOutput.h>
 #include <Output/FileOutput.h>
-#include <Macros/Function.h>
-#include <Macros/File.h>
-#include <Macros/Line.h>
 
 class LoggerTest : public testing::Test {};
 
 TEST(LoggerTest, Test)
 {
-    Logger logger{};
+    const ALogOutput* consoleOut = G_DEFAULT_LOGGER.AddLogOutput<ConsoleOutput>();
+    const ALogOutput* fileOut = G_DEFAULT_LOGGER.AddLogOutput<FileOutput>();
 
-    const ALogOutput* consoleOut = logger.AddLogOutput<ConsoleOutput>();
-    const ALogOutput* fileOut = logger.AddLogOutput<FileOutput>();
+    KOORI_LOG(L"Animation", L"Animation graph started", L"")
+    KOORI_WARN(L"T", L"IDK", L"")
+    KOORI_ERROR(L"Vulkan", L"Swap chain error", L"Lot of errors")
 
-    Log log(LogSeverity::KL_DEBUG, L"Animation", L"Animation graph started", L"", KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime());
-    logger.Logging(log);
-
-    log = Log(LogSeverity::KL_ERROR, L"Vulkan", L"Swap chain error", L"Lot of errors", KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime());
-    logger.Logging(log);
-
-    logger.RemoveLogOutput(fileOut);
-    logger.RemoveLogOutput(consoleOut);
+    G_DEFAULT_LOGGER.RemoveLogOutput(fileOut);
+    G_DEFAULT_LOGGER.RemoveLogOutput(consoleOut);
 }
