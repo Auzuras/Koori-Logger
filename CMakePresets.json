@@ -38,9 +38,9 @@
       "inherits": "Base",
       "generator": "Ninja Multi-Config",
       "cacheVariables": {
-        "CMAKE_CXX_COMPILER": "clang++$env{clang_compiler_v}"
+        "CMAKE_CXX_COMPILER": "g++$env{gcc_compiler_v}"
       },
-      "description": "Clang compiler"
+      "description": "GCC compiler"
     }
   ],
   "buildPresets": [
