@@ -1,5 +1,5 @@
-#ifndef KOORI_LOGGER_FILEOUTPUT_H
-#define KOORI_LOGGER_FILEOUTPUT_H
+#ifndef KOORI_LOGGER_FILE_OUTPUT_H
+#define KOORI_LOGGER_FILE_OUTPUT_H
 
 #include <Output/ALogOutput.h>
 
@@ -48,4 +48,4 @@ private:
     std::wofstream m_LogFile{};
 };
 
-#endif //KOORI_LOGGER_FILEOUTPUT_H
+#endif //KOORI_LOGGER_FILE_OUTPUT_H

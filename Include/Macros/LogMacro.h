@@ -1,5 +1,5 @@
-﻿#ifndef KOORI_LOGGER_LOGMACRO_H
-#define KOORI_LOGGER_LOGMACRO_H
+﻿#ifndef KOORI_LOGGER_LOG_MACRO_H
+#define KOORI_LOGGER_LOG_MACRO_H
 
 #include <Logger.h>
 
@@ -33,4 +33,4 @@
  */
 #define KOORI_ERROR(_channel, _message, _details) G_DEFAULT_LOGGER.Logging(Log(LogSeverity::KL_ERROR, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()));
 
-#endif //KOORI_LOGGER_LOGMACRO_H
+#endif //KOORI_LOGGER_LOG_MACRO_H

@@ -1,5 +1,5 @@
-#ifndef KOORI_LOGGER_CONSOLEOUTPUT_H
-#define KOORI_LOGGER_CONSOLEOUTPUT_H
+#ifndef KOORI_LOGGER_CONSOLE_OUTPUT_H
+#define KOORI_LOGGER_CONSOLE_OUTPUT_H
 
 #include <Output/ALogOutput.h>
 
@@ -27,4 +27,4 @@ public:
     void WriteLog(const Log& _log) override;
 };
 
-#endif //KOORI_LOGGER_CONSOLEOUTPUT_H
+#endif //KOORI_LOGGER_CONSOLE_OUTPUT_H

@@ -1,5 +1,5 @@
-#ifndef KOORI_LOGGER_LOGSEVERITY_H
-#define KOORI_LOGGER_LOGSEVERITY_H
+#ifndef KOORI_LOGGER_LOG_SEVERITY_H
+#define KOORI_LOGGER_LOG_SEVERITY_H
 
 #include <cstdint>
 #include <string>
@@ -42,4 +42,4 @@ static inline std::wstring LogSeverityToWString(LogSeverity severity)
     }
 }
 
-#endif //KOORI_LOGGER_LOGSEVERITY_H
+#endif //KOORI_LOGGER_LOG_SEVERITY_H

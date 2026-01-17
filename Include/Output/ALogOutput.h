@@ -1,5 +1,5 @@
-#ifndef KOORI_LOGGER_ALOGOUTPUT_H
-#define KOORI_LOGGER_ALOGOUTPUT_H
+#ifndef KOORI_LOGGER_ALOG_OUTPUT_H
+#define KOORI_LOGGER_ALOG_OUTPUT_H
 
 #include <Logging/Log.h>
 #include <Logging/LogSeverity.h>
@@ -41,4 +41,4 @@ protected:
     LogChannel p_Channels;
 };
 
-#endif //KOORI_LOGGER_ALOGOUTPUT_H
+#endif //KOORI_LOGGER_ALOG_OUTPUT_H

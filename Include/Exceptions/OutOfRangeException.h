@@ -1,6 +1,5 @@
-
-#ifndef KOORI_LOGGER_OUTOFRANGEEXCEPTION_H
-#define KOORI_LOGGER_OUTOFRANGEEXCEPTION_H
+#ifndef KOORI_LOGGER_OUT_OF_RANGE_EXCEPTION_H
+#define KOORI_LOGGER_OUT_OF_RANGE_EXCEPTION_H
 
 #include <Exceptions/Exception.h>
 
@@ -11,4 +10,4 @@ public:
     ~OutOfRangeException() override = default;
 };
 
-#endif //KOORI_LOGGER_OUTOFRANGEEXCEPTION_H
+#endif //KOORI_LOGGER_OUT_OF_RANGE_EXCEPTION_H
