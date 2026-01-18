@@ -1,12 +1,8 @@
 #ifndef KOORI_LOGGER_ASSERT_H
 #define KOORI_LOGGER_ASSERT_H
 
-#if KOORI_ASSERTIONS_ENABLED
+#include <Logger.h>
 
-#else // KOORI_ASSERTIONS_ENABLED
-
-	#define KOORI_ASSERT(expr)
-
-#endif // KOORI_ASSERTIONS_ENABLED
+#define KOORI_ASSERT(_expr) if (_expr == true) G_DEFAULT_LOGGER->Assert();
 
 #endif //KOORI_LOGGER_ASSERT_H

@@ -1,7 +1,9 @@
 #ifndef KOORI_LOGGER_LOGGER_H
 #define KOORI_LOGGER_LOGGER_H
 
+#include <memory>
 #include <Logging/Log.h>
+#include <Exceptions/Exception.h>
 #include <Output/ALogOutput.h>
 
 #include <vector>
@@ -29,6 +31,8 @@ public:
      */
     void Logging(const Log& _log) const;
 
+    void Assert() const;
+
     /**
      * Add a new log output in the logger
      * @tparam T Type of the log output
@@ -48,6 +52,9 @@ public:
      */
     void RemoveLogOutput(const ALogOutput* _output);
 
+    static void RegisterLogger(const std::shared_ptr<Logger>& _logger);
+    static void RemoveLogger();
+
 private:
 
     /**
@@ -57,6 +64,6 @@ private:
 
 };
 
-inline Logger G_DEFAULT_LOGGER = Logger();
+inline std::shared_ptr<Logger> G_DEFAULT_LOGGER = std::make_shared<Logger>();
 
 #endif //KOORI_LOGGER_LOGGER_H

@@ -17,9 +17,9 @@ enum class LogSeverity : uint32_t
     KL_FATAL        = 0x1 << 0x8
 };
 
-static inline std::wstring LogSeverityToWString(LogSeverity severity)
+static inline std::wstring LogSeverityToWString(LogSeverity _severity)
 {
-    switch (severity)
+    switch (_severity)
     {
         case LogSeverity::KL_TRACE: default:
             return L"TRACE";

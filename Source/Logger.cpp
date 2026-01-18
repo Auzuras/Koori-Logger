@@ -7,6 +7,11 @@ void Logger::Logging(const Log& _log) const
         output->WriteLog(_log);
 }
 
+void Logger::Assert() const
+{
+    throw;
+}
+
 void Logger::RemoveLogOutput(const ALogOutput* _output)
 {
     // Go through each outputs
@@ -27,4 +32,15 @@ void Logger::RemoveLogOutput(const ALogOutput* _output)
         // Early exit
         return;
     }
+}
+
+void Logger::RegisterLogger(const std::shared_ptr<Logger>& _logger)
+{
+    G_DEFAULT_LOGGER = _logger;
+}
+
+void Logger::RemoveLogger()
+{
+    G_DEFAULT_LOGGER.reset();
+    G_DEFAULT_LOGGER = nullptr;
 }

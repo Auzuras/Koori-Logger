@@ -28,7 +28,7 @@ std::wstring Log::ToWString() const
 
     std::wstring result = time.ToWString();
 
-    result += std::format(L" [{}{}{}] ", L"\033[31m", LogSeverityToWString(severity), L"\033[0m");
+    result += std::format(L" [{}{}{}] ", L"\033[91m", LogSeverityToWString(severity), L"\033[0m");
     result += std::format(L"[{}:{} - {}]\n", file, std::to_wstring(lineNumber), function);
     result += std::format(L"[{}]: {}{}{}\n", channel, L"\033[31m", message, L"\033[0m");
 
