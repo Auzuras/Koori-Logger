@@ -3,7 +3,6 @@
 
 #include <memory>
 #include <Logging/Log.h>
-#include <Exceptions/Exception.h>
 #include <Output/ALogOutput.h>
 
 #include <vector>
@@ -53,7 +52,7 @@ public:
     void RemoveLogOutput(const ALogOutput* _output);
 
     static void RegisterLogger(const std::shared_ptr<Logger>& _logger);
-    static void RemoveLogger();
+    static void ClearLogger();
 
 private:
 

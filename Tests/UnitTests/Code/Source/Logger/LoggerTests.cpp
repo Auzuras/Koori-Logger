@@ -19,8 +19,6 @@ TEST(LoggerTest, Test)
 
     KOORI_ERROR(L"Vulkan", L"Swap chain error", L"Lot of errors")
 
-    KOORI_ASSERT(true == true)
-
     G_DEFAULT_LOGGER->RemoveLogOutput(fileOut);
     G_DEFAULT_LOGGER->RemoveLogOutput(consoleOut);
 }

@@ -9,7 +9,7 @@ void Logger::Logging(const Log& _log) const
 
 void Logger::Assert() const
 {
-    throw;
+    std::abort();
 }
 
 void Logger::RemoveLogOutput(const ALogOutput* _output)
@@ -39,7 +39,7 @@ void Logger::RegisterLogger(const std::shared_ptr<Logger>& _logger)
     G_DEFAULT_LOGGER = _logger;
 }
 
-void Logger::RemoveLogger()
+void Logger::ClearLogger()
 {
     G_DEFAULT_LOGGER.reset();
     G_DEFAULT_LOGGER = nullptr;
