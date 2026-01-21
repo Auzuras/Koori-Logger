@@ -51,6 +51,10 @@ public:
      */
     void RemoveLogOutput(const ALogOutput* _output);
 
+    /**
+     * @brief 
+     * @param _logger 
+     */
     static void RegisterLogger(const std::shared_ptr<Logger>& _logger);
     static void ClearLogger();
 

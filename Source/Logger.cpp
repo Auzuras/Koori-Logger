@@ -1,5 +1,7 @@
 #include <Logger.h>
 
+#include <Macros/Break.h>
+
 void Logger::Logging(const Log& _log) const
 {
     // Simply go through all the outputs and write the message
@@ -9,7 +11,7 @@ void Logger::Logging(const Log& _log) const
 
 void Logger::Assert() const
 {
-    std::abort();
+    KOORI_BREAK();
 }
 
 void Logger::RemoveLogOutput(const ALogOutput* _output)
