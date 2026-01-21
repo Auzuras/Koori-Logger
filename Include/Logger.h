@@ -8,24 +8,24 @@
 #include <vector>
 
 /**
- * Base Logger class (Not thread safe)
+ * @brief Base Logger class (Not thread safe)
  */
 class Logger
 {
 public:
 
     /**
-     * Default Logger's constructor
+     * @brief Default Logger's constructor
      */
     Logger() = default;
 
     /**
-     * Default Logger's destructor
+     * @brief Default Logger's destructor
      */
     virtual ~Logger() = default;
 
     /**
-     * Logging function printing a log message in each registered output of the logger
+     * @brief Logging function printing a log message in each registered output of the logger
      * @param _log Log reference that should be printed
      */
     void Logging(const Log& _log) const;
@@ -33,7 +33,7 @@ public:
     void Assert() const;
 
     /**
-     * Add a new log output in the logger
+     * @brief Add a new log output in the logger
      * @tparam T Type of the log output
      * @return A pointer on the created output
      */
@@ -52,21 +52,28 @@ public:
     void RemoveLogOutput(const ALogOutput* _output);
 
     /**
-     * @brief 
-     * @param _logger 
+     * @brief Register a new logger to the global pointer
+     * @param _logger Logger to register
      */
     static void RegisterLogger(const std::shared_ptr<Logger>& _logger);
+
+    /**
+     * @brief Destroy the global logger pointer
+     */
     static void ClearLogger();
 
 private:
 
     /**
-     * Vector of all the registered log outputs
+     * @brief Vector of all the registered log outputs
      */
     std::vector<ALogOutput*> m_LogOutputs{};
 
 };
 
+/**
+ * @brief Global logger pointer used inside all of the macros of the logger
+ */
 inline std::shared_ptr<Logger> G_DEFAULT_LOGGER = std::make_shared<Logger>();
 
 #endif //KOORI_LOGGER_LOGGER_H
