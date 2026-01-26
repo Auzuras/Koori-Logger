@@ -19,7 +19,13 @@ TEST(LoggerTest, Test)
 
     KOORI_ERROR(L"Engine/Graphics/Vulkan", L"Swap chain error", L"Lot of errors");
 
-    KOORI_LOG(LogSeverity::KL_LOADING, L"Engine/Resources", L"Loading Sponza.fbx", L"");
+    KOORI_LOG(L"Loading Sponza.fbx");
+
+    KOORI_LOG(LogSeverity::KL_LOADING, L"Loading Sponza.fbx");
+
+    KOORI_LOG(LogSeverity::KL_LOADING, L"Engine/Resources", L"Loading Sponza.fbx");
+
+    KOORI_LOG(LogSeverity::KL_LOADING, L"Engine/Resources", L"Loading Sponza.fbx", L"Loading first submesh");
 
     G_DEFAULT_LOGGER->Assert(false == true);
 
