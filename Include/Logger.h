@@ -30,7 +30,11 @@ public:
      */
     void Logging(const Log& _log) const;
 
-    void Assert() const;
+    /**
+     * @brief 
+     * @param _condition 
+     */
+    void Assert(bool _condition) const;
 
     /**
      * @brief Add a new log output in the logger

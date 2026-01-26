@@ -13,13 +13,15 @@ TEST(LoggerTest, Test)
     const ALogOutput* consoleOut = G_DEFAULT_LOGGER->AddLogOutput<ConsoleOutput>();
     const ALogOutput* fileOut = G_DEFAULT_LOGGER->AddLogOutput<FileOutput>();
 
-    KOORI_LOG(L"Animation", L"Animation graph started", L"");
+    KOORI_DEBUG(L"Engine/Animation", L"Animation graph started", L"");
 
-    KOORI_WARN(L"T", L"IDK", L"");
+    KOORI_WARN(L"Engine", L"Config.ini is not loaded!", L"");
 
-    KOORI_ERROR(L"Vulkan", L"Swap chain error", L"Lot of errors");
+    KOORI_ERROR(L"Engine/Graphics/Vulkan", L"Swap chain error", L"Lot of errors");
 
-    G_DEFAULT_LOGGER->Assert();
+    KOORI_LOG(LogSeverity::KL_LOADING, L"Engine/Resources", L"Loading Sponza.fbx", L"");
+
+    G_DEFAULT_LOGGER->Assert(false == true);
 
     G_DEFAULT_LOGGER->RemoveLogOutput(fileOut);
     G_DEFAULT_LOGGER->RemoveLogOutput(consoleOut);

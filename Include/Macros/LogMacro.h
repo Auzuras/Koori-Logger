@@ -15,7 +15,15 @@
  * @param _message
  * @param _details
  */
-#define KOORI_LOG(_channel, _message, _details) G_DEFAULT_LOGGER->Logging(Log(LogSeverity::KL_DEBUG, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()));
+#define KOORI_LOG(_level, _channel, _message, _details) G_DEFAULT_LOGGER->Logging(Log(_level, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()));
+
+/**
+ *
+ * @param _channel
+ * @param _message
+ * @param _details
+ */
+#define KOORI_DEBUG(_channel, _message, _details) G_DEFAULT_LOGGER->Logging(Log(LogSeverity::KL_DEBUG, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()));
 
 /**
  *
@@ -32,5 +40,13 @@
  * @param _details
  */
 #define KOORI_ERROR(_channel, _message, _details) G_DEFAULT_LOGGER->Logging(Log(LogSeverity::KL_ERROR, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()));
+
+ /**
+  *
+  * @param _channel
+  * @param _message
+  * @param _details
+  */
+#define KOORI_FATAL(_channel, _message, _details) G_DEFAULT_LOGGER->Logging(Log(LogSeverity::KL_FATAL, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()));
 
 #endif //KOORI_LOGGER_LOG_MACRO_H

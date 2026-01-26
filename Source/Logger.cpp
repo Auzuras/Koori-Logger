@@ -1,6 +1,7 @@
 #include <Logger.h>
 
 #include <Macros/Break.h>
+#include <Macros/LogMacro.h>
 
 void Logger::Logging(const Log& _log) const
 {
@@ -9,8 +10,12 @@ void Logger::Logging(const Log& _log) const
         output->WriteLog(_log);
 }
 
-void Logger::Assert() const
+void Logger::Assert(bool _condition) const
 {
+    if (!_condition)
+        return;
+    
+    KOORI_FATAL(L"Assert", L"Fatal error assert is true !", L"");
     KOORI_BREAK();
 }
 
