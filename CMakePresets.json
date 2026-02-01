@@ -35,6 +35,13 @@
       "generator": "Visual Studio 17 2022"
     },
     {
+      "name": "VS_2026",
+      "inherits": "MSVC",
+      "displayName": "Visual Studio 2026",
+      "description": "MSVC Compiler",
+      "generator": "Visual Studio 18 2026"
+    },
+    {
       "name": "GCC",
       "inherits": "Base",
       "generator": "Ninja Multi-Config",
@@ -84,6 +91,18 @@
       "inherits": "Release",
       "description": "Visual Studio multi-config Release preset",
       "configurePreset": "VS_2022"
+    },
+    {
+      "name": "VS_2026 Debug",
+      "inherits": "Debug",
+      "description": "Visual Studio multi-config Debug preset",
+      "configurePreset": "VS_2026"
+    },
+    {
+      "name": "VS_2026 Release",
+      "inherits": "Release",
+      "description": "Visual Studio multi-config Release preset",
+      "configurePreset": "VS_2026"
     }
   ]
 }
