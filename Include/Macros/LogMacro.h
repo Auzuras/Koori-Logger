@@ -87,13 +87,38 @@
  */
 #define KOORI_LOG(...) __KOORI_COMBINE(__KOORI_LOG_INTERNAL(__VA_ARGS__, __KOORI_LOG_FOUR_PARAMS, __KOORI_LOG_THREE_PARAMS, __KOORI_LOG_TWO_PARAMS, __KOORI_LOG_ONE_PARAM)(__VA_ARGS__))
 
+ /**
+  * __KOORI_BASE_LOG_INTERNAL Macro - Simplification for DEBUG level
+  * @param _severity Severity of the log
+  * @param _channel Channel of the log
+  * @param _message Message of the log
+  * @param _details Details of the log
+  */
+#define __KOORI_BASE_LOG_INTERNAL(_severity, _channel, _message, _details) G_DEFAULT_LOGGER->Logging(Log(_severity, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()))
+
+ /**
+  * KOORI_DEBUG Macro - Simplification for DEBUG level
+  * @param _channel Channel of the log
+  * @param _message Message of the log
+  * @param _details Details of the log
+  */
+#define KOORI_TRACE(_channel, _message, _details) __KOORI_BASE_LOG_INTERNAL(LogSeverity::KL_TRACE, _channel, _message, _details)
+
 /**
  * KOORI_DEBUG Macro - Simplification for DEBUG level
  * @param _channel Channel of the log
  * @param _message Message of the log
  * @param _details Details of the log
  */
-#define KOORI_DEBUG(_channel, _message, _details) G_DEFAULT_LOGGER->Logging(Log(LogSeverity::KL_DEBUG, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()));
+#define KOORI_DEBUG(_channel, _message, _details) __KOORI_BASE_LOG_INTERNAL(LogSeverity::KL_DEBUG, _channel, _message, _details)
+
+ /**
+  * KOORI_DEBUG Macro - Simplification for DEBUG level
+  * @param _channel Channel of the log
+  * @param _message Message of the log
+  * @param _details Details of the log
+  */
+#define KOORI_INFO(_channel, _message, _details) __KOORI_BASE_LOG_INTERNAL(LogSeverity::KL_INFO, _channel, _message, _details)
 
 /**
  * KOORI_WARN Macro - Simplification for WARN level
@@ -101,7 +126,7 @@
  * @param _message Message of the log
  * @param _details Details of the log
  */
-#define KOORI_WARN(_channel, _message, _details) G_DEFAULT_LOGGER->Logging(Log(LogSeverity::KL_WARNING, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()));
+#define KOORI_WARN(_channel, _message, _details) __KOORI_BASE_LOG_INTERNAL(LogSeverity::KL_WARNING, _channel, _message, _details)
 
 /**
  * KOORI_ERROR Macro - Simplification for ERROR level
@@ -109,7 +134,7 @@
  * @param _message Message of the log
  * @param _details Details of the log
  */
-#define KOORI_ERROR(_channel, _message, _details) G_DEFAULT_LOGGER->Logging(Log(LogSeverity::KL_ERROR, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()));
+#define KOORI_ERROR(_channel, _message, _details) __KOORI_BASE_LOG_INTERNAL(LogSeverity::KL_ERROR, _channel, _message, _details)
 
 /**
  * KOORI_FATAL Macro - Simplification for FATAL level
@@ -117,6 +142,6 @@
  * @param _message Message of the log
  * @param _details Details of the log
  */
-#define KOORI_FATAL(_channel, _message, _details) G_DEFAULT_LOGGER->Logging(Log(LogSeverity::KL_FATAL, _channel, _message, _details, KOORI_FILE, KOORI_FUNCTION, KOORI_LINE, LogTime::GetLocalTime()));
+#define KOORI_FATAL(_channel, _message, _details) __KOORI_BASE_LOG_INTERNAL(LogSeverity::KL_FATAL, _channel, _message, _details)
 
 #endif //KOORI_LOGGER_LOG_MACRO_H

@@ -21,11 +21,11 @@ TEST(LoggerTest, Test)
 
     KOORI_LOG(L"Loading Sponza.fbx");
 
-    KOORI_LOG(LogSeverity::KL_LOADING, L"Loading Sponza.fbx");
+    KOORI_LOG(LogSeverity::KL_INFO, L"Loading Sponza.fbx");
 
-    KOORI_LOG(LogSeverity::KL_LOADING, L"Engine/Resources", L"Loading Sponza.fbx");
+    KOORI_LOG(LogSeverity::KL_INFO, L"Engine/Resources", L"Loading Sponza.fbx");
 
-    KOORI_LOG(LogSeverity::KL_LOADING, L"Engine/Resources", L"Loading Sponza.fbx", L"Loading first submesh");
+    KOORI_LOG(LogSeverity::KL_INFO, L"Engine/Resources", L"Loading Sponza.fbx", L"Loading first submesh");
 
     G_DEFAULT_LOGGER->Assert(false == true);
 

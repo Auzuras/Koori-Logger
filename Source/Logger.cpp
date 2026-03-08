@@ -22,7 +22,6 @@ void Logger::Assert(bool _condition) const
 void Logger::RemoveLogOutput(const ALogOutput* _output)
 {
     // Go through each outputs
-
     size_t index = 0;
     for (const ALogOutput* currentOutput : m_LogOutputs)
     {
