@@ -46,7 +46,7 @@
  *
  * @param _message Message of the log
  */
-#define __KOORI_LOG_ONE_PARAM(_message) __KOORI_LOG_TWO_PARAMS(LogSeverity::KL_DEBUG, _message)
+#define __KOORI_LOG_ONE_PARAM(_message) __KOORI_LOG_TWO_PARAMS(LogSeverity::KL_TRACE, _message)
 
 /**
  * @brief __KOORI_COMBINE Combine macro

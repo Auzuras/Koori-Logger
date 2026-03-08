@@ -27,7 +27,7 @@ TEST(LoggerTest, Test)
 
     KOORI_LOG(LogSeverity::KL_INFO, L"Engine/Resources", L"Loading Sponza.fbx", L"Loading first submesh");
 
-    G_DEFAULT_LOGGER->Assert(false == true);
+    G_DEFAULT_LOGGER->Assert(true == true);
 
     G_DEFAULT_LOGGER->RemoveLogOutput(fileOut);
     G_DEFAULT_LOGGER->RemoveLogOutput(consoleOut);

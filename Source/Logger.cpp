@@ -12,7 +12,7 @@ void Logger::Logging(const Log& _log) const
 
 void Logger::Assert(bool _condition) const
 {
-    if (!_condition)
+    if (_condition)
         return;
     
     KOORI_FATAL(L"Assert", L"Fatal error assert is true !", L"");
