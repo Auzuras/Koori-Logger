@@ -13,11 +13,17 @@ TEST(LoggerTest, Test)
     const ALogOutput* consoleOut = G_DEFAULT_LOGGER->AddLogOutput<ConsoleOutput>();
     const ALogOutput* fileOut = G_DEFAULT_LOGGER->AddLogOutput<FileOutput>();
 
-    KOORI_DEBUG(L"Engine/Animation", L"Animation graph started", L"");
+    KOORI_TRACE(L"Game", L"Player is jumping", L"");
+
+    KOORI_DEBUG(L"Game", L"Player position is: -18 5 157", L"");
+
+    KOORI_INFO(L"Engine/Animation", L"Animation graph started", L"");
 
     KOORI_WARN(L"Engine", L"Config.ini is not loaded!", L"");
 
     KOORI_ERROR(L"Engine/Graphics/Vulkan", L"Swap chain error", L"Lot of errors");
+
+    KOORI_FATAL(L"Engine/Graphics/Vulkan", L"No vulkand device found", L"Failed to find a suitable device!");
 
     KOORI_LOG(L"Loading Sponza.fbx");
 
