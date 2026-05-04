@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include <string>
+#include <Output/ConsoleColor.h>
 
 enum class LogSeverity : uint32_t
 {

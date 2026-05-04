@@ -17,6 +17,7 @@ std::wstring Log::ToWString() const
 {
     const std::wstring function(functionName.begin(), functionName.end());
     const std::wstring file(fileName.begin(), fileName.end());
+    //const std::wstring color = std::format(L"\033[{}m", LogSeverityToColor(severity));
 
     /**
      * Create a string in the following format
@@ -28,9 +29,9 @@ std::wstring Log::ToWString() const
 
     std::wstring result = time.ToWString();
 
-    result += std::format(L" [{}{}{}] ", L"\033[91m", LogSeverityToWString(severity), L"\033[0m");
+    result += std::format(L" [{}] ", LogSeverityToWString(severity));
     result += std::format(L"[{}:{} - {}]\n", file, std::to_wstring(lineNumber), function);
-    result += std::format(L"[{}]: {}{}{}\n", channel, L"\033[31m", message, L"\033[0m");
+    result += std::format(L"[{}]: {}\n", channel, message);
 
     if (!details.empty())
         result += L"Details: " + details + L'\n';
