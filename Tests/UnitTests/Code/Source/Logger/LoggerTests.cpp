@@ -10,7 +10,6 @@ class LoggerTest : public testing::Test {};
 
 TEST(LoggerTest, Test)
 {
-    const ALogOutput* consoleOut = G_DEFAULT_LOGGER->AddLogOutput<ConsoleOutput>();
     const ALogOutput* fileOut = G_DEFAULT_LOGGER->AddLogOutput<FileOutput>();
 
     KOORI_TRACE(L"Game", L"Player is jumping", L"");
@@ -36,5 +35,4 @@ TEST(LoggerTest, Test)
     G_DEFAULT_LOGGER->Assert(true == true);
 
     G_DEFAULT_LOGGER->RemoveLogOutput(fileOut);
-    G_DEFAULT_LOGGER->RemoveLogOutput(consoleOut);
 }

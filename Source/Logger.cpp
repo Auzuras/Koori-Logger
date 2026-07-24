@@ -3,6 +3,18 @@
 #include <Macros/Break.h>
 #include <Macros/LogMacro.h>
 
+#include <Output/ConsoleOutput.h>
+
+Logger::Logger()
+{
+    AddLogOutput<ConsoleOutput>();
+}
+
+Logger::~Logger()
+{
+    RemoveAllLogOutputs();
+}
+
 void Logger::Logging(const Log& _log) const
 {
     // Simply go through all the outputs and write the message
@@ -38,6 +50,15 @@ void Logger::RemoveLogOutput(const ALogOutput* _output)
         // Early exit
         return;
     }
+}
+
+void Logger::RemoveAllLogOutputs()
+{
+    // Go through each outputs
+    for (const ALogOutput* currentOutput : m_LogOutputs)
+        delete currentOutput;
+
+    m_LogOutputs.clear();
 }
 
 void Logger::RegisterLogger(const std::shared_ptr<Logger>& _logger)

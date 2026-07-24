@@ -16,5 +16,5 @@ LogTime LogTime::GetLocalTime()
 std::wstring LogTime::ToWString() const
 {
     // TODO: Add different time format
-    return std::format(L"[{:02}:{:02}:{:02} - {:02}/{:02}/{:04}]", hour, minute, second, day, month, year);
+    return std::format(L"[{:04}/{:02}/{:02} | {:02}:{:02}:{:02}]", year, month, day, hour, minute, second);
 }

@@ -17,12 +17,12 @@ public:
     /**
      * @brief Default Logger's constructor
      */
-    Logger() = default;
+    Logger();
 
     /**
      * @brief Default Logger's destructor
      */
-    virtual ~Logger() = default;
+    virtual ~Logger();
 
     /**
      * @brief Logging function printing a log message in each registered output of the logger
@@ -67,6 +67,11 @@ public:
     static void ClearLogger();
 
 private:
+
+    /**
+     * Remove all the log outputs registered
+     */
+    void RemoveAllLogOutputs();
 
     /**
      * @brief Vector of all the registered log outputs

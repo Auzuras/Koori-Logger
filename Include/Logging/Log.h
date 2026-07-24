@@ -60,6 +60,11 @@ public:
     LogSeverity severity = LogSeverity::KL_TRACE;
 
     /**
+     * Line of the file where the log is called
+     */
+    uint32_t lineNumber = 0u;
+
+    /**
      * Channel associated to the log
      */
     std::wstring channel = L"Default";
@@ -83,11 +88,6 @@ public:
      * Function where the log is called
      */
     std::string functionName = "main";
-
-    /**
-     * Line of the file where the log is called
-     */
-    uint32_t lineNumber = 0u;
 
     /**
      * Date and time of the log
