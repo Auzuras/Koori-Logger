@@ -5,7 +5,7 @@
 #include <string>
 #include <Output/ConsoleColor.h>
 
-enum class LogSeverity : uint32_t
+enum class LogSeverity : uint8_t
 {
     KL_TRACE        =   0x0,
     KL_DEBUG        =   0x1,

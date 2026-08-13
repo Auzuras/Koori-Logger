@@ -27,7 +27,7 @@ void Logger::Assert(bool _condition) const
     if (_condition)
         return;
     
-    KOORI_FATAL(L"Assert", L"Fatal error assert is true !", L"");
+    KOORI_FATAL(L"Assert", L"Fatal error condition failed!", L"");
     KOORI_BREAK();
 }
 
