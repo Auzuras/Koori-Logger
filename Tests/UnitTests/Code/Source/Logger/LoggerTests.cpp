@@ -3,6 +3,8 @@
 #include <Macros/LogMacro.h>
 #include <Macros/Assert.h>
 
+#include <Utils/LoggerTime.h>
+
 #include <Output/ConsoleOutput.h>
 #include <Output/FileOutput.h>
 
