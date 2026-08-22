@@ -3,6 +3,8 @@
 #include <format>
 #include <utility>
 
+#include <windows.h>
+
 Log::Log(const LogSeverity _severity, std::wstring& _channel, std::wstring& _message, std::wstring& _details, std::string& _fileName, std::string& _functionName, const uint32_t _lineNumber, const LogTime& _time)
     : severity(_severity), channel(std::move(_channel)), message(std::move(_message)), details(std::move(_details)), fileName(std::move(_fileName)), functionName(std::move(_functionName)), lineNumber(_lineNumber), time(_time)
 {
@@ -17,7 +19,6 @@ std::wstring Log::ToWString() const
 {
     const std::wstring function(functionName.begin(), functionName.end());
     const std::wstring file(fileName.begin(), fileName.end());
-    //const std::wstring color = std::format(L"\033[{}m", LogSeverityToColor(severity));
 
     /**
      * Create a string in the following format

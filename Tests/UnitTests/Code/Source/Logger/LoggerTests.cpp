@@ -14,6 +14,8 @@ TEST(LoggerTest, Test)
 {
     const ALogOutput* fileOut = G_DEFAULT_LOGGER->AddLogOutput<FileOutput>();
 
+    //G_DEFAULT_LOGGER->Assert(true == false);
+
     KOORI_TRACE(L"Game", L"Player is jumping", L"");
 
     KOORI_DEBUG(L"Game", L"Player position is: -18 5 157", L"");
@@ -33,8 +35,6 @@ TEST(LoggerTest, Test)
     KOORI_LOG(LogSeverity::KL_INFO, L"Engine/Resources", L"Loading Sponza.fbx");
 
     KOORI_LOG(LogSeverity::KL_INFO, L"Engine/Resources", L"Loading Sponza.fbx", L"Loading first submesh");
-
-    G_DEFAULT_LOGGER->Assert(true == false);
 
     G_DEFAULT_LOGGER->RemoveLogOutput(fileOut);
 }
