@@ -14,7 +14,7 @@ LogTime::LogTime(const tm& _time)
     if (hour == 0) hour = m;
     isPM = _time.tm_hour >= m;
 
-    ltime = __KOORI_LOGGER_WRITE_HOUR(ltime, _time.tm_hour - m);
+    ltime = __KOORI_LOGGER_WRITE_HOUR(ltime, hour);
     ltime = __KOORI_LOGGER_WRITE_MINUTE(ltime, _time.tm_min);
     ltime = __KOORI_LOGGER_WRITE_SECOND(ltime, _time.tm_sec);
 }
