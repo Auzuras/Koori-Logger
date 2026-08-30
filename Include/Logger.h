@@ -31,12 +31,6 @@ public:
     void Logging(const Log& _log) const;
 
     /**
-     * @brief 
-     * @param _condition 
-     */
-    void Assert(bool _condition) const;
-
-    /**
      * @brief Add a new log output in the logger
      * @tparam T Type of the log output
      * @return A pointer on the created output

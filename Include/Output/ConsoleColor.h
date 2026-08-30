@@ -1,6 +1,8 @@
 #ifndef KOORI_LOGGER_CONSOLE_COLOR_H
 #define KOORI_LOGGER_CONSOLE_COLOR_H
 
+#include <cstdint>
+
 // Windows colors       
                         
 // 0 - Black            
@@ -21,47 +23,66 @@
 // 15 - white           
 
 // Windows Color = Foreground + background * 16
+// or (Background << 4) | foreground
 
 struct ConsoleColor
 {
 public:
-    enum class Color : uint8_t // 4
+    enum class Color : uint8_t
     {
-        KL_COLOR_RED        =   0x0,
-        KL_COLOR_GREEN      =   0x1,
-        KL_COLOR_BLUE       =   0x2,
-        KL_COLOR_CYAN       =   0x3,
-        KL_COLOR_MAGENTA    =   0x4,
-        KL_COLOR_YELLOW     =   0x5,
-        KL_COLOR_GRAY       =   0x6,
-        KL_COLOR_BLACK      =   0x7,
-        KL_COLOR_WHITE      =   0x8
+        KL_COLOR_BLACK      =   0,
+        KL_COLOR_RED        =   1,
+        KL_COLOR_GREEN      =   2,
+        KL_COLOR_YELLOW     =   3,
+        KL_COLOR_BLUE       =   4,
+        KL_COLOR_MAGENTA    =   5,
+        KL_COLOR_CYAN       =   6,
+        KL_COLOR_WHITE      =   8
     };
 
-    enum class Intensity : uint8_t // 1
+    enum class Intensity : uint8_t
     {
-        KL_COLOR_LIGHT      =   0x0,
-        KL_COLOR_DARK       =   0x1
+        KL_COLOR_INTENSITY_LIGHT      =   30,
+        KL_COLOR_INTENSITY_DARK       =   90
     };
 
-    enum class Target : uint8_t // 1
+    enum class Target : uint8_t
     {
-        KL_COLOR_FOREGROUND =   0x0,
-        KL_COLOR_BACKGROUND =   0x1
+        KL_COLOR_TARGET_FOREGROUND =   0x0,
+        KL_COLOR_TARGET_BACKGROUND =   0x1
     };
 
-    enum class Attribute : uint8_t // 2
+    enum class Attribute : uint8_t
     {
-        KL_COLOR_BOLD       =   0x0,
-        KL_COLOR_ITALIC     =   0x1,
-        KL_COLOR_UNDERLINE  =   0x2
+        KL_COLOR_ATTRIBUTE_NONE                 =   0,
+        KL_COLOR_ATTRIBUTE_BOLD                 =   0x1 << 1,
+        KL_COLOR_ATTRIBUTE_DIM                  =   0x1 << 2,
+        KL_COLOR_ATTRIBUTE_ITALIC               =   0x1 << 3,
+        KL_COLOR_ATTRIBUTE_UNDERLINE            =   0x1 << 4,
+        KL_COLOR_ATTRIBUTE_BLINK                =   0x1 << 5,
+        KL_COLOR_ATTRIBUTE_RAPID_BLINK          =   0x1 << 6,
+        KL_COLOR_ATTRIBUTE_REVERSE              =   0x1 << 7,
+        KL_COLOR_ATTRIBUTE_CONCEAL              =   0x1 << 8,
+        KL_COLOR_ATTRIBUTE_STRIKETHROUGH        =   0x1 << 9,
+        KL_COLOR_ATTRIBUTE_DOUBLE_UNDERLINE     =   0x1 << 10
     };
 
 private:
-    uint8_t m_ColorDescription = 0u;
+    uint16_t m_ColorDescription = 0u;
+
 
 public:
-    ConsoleColor(Color _color, Intensity _intensity, Target _target, Attribute _attribute);
+    ConsoleColor(Color _color, Intensity _intensity = Intensity::KL_COLOR_INTENSITY_LIGHT, Target _target = Target::KL_COLOR_TARGET_FOREGROUND, Attribute _attribute = Attribute::KL_COLOR_ATTRIBUTE_NONE);
+
+    void SetColor();
+    void ResetColor();
+
+protected:
+    static bool CheckForANSISupport();
+
+private:
+    static bool WIN_CheckForANSISupport();
+
 };
 
 

@@ -10,11 +10,13 @@
 
 class LoggerTest : public testing::Test {};
 
+#include <cassert>
+
 TEST(LoggerTest, Test)
 {
     const ALogOutput* fileOut = G_DEFAULT_LOGGER->AddLogOutput<FileOutput>();
 
-    //G_DEFAULT_LOGGER->Assert(true == false);
+    KOORI_ASSERT(true == false);
 
     KOORI_TRACE(L"Game", L"Player is jumping", L"");
 

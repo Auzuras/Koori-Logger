@@ -32,7 +32,7 @@ std::wstring LogTime::ToWString() const
     // TODO: Refactor a bit
     return std::format(
         L"[{:02}/{:02}/{:02} | {:02}:{:02}:{:02}]", 
-        __KOORI_LOGGER_READ_YEAR(date), __KOORI_LOGGER_READ_MONTH(date), __KOORI_LOGGER_READ_DAY(date), 
+        __KOORI_LOGGER_READ_DAY(date), __KOORI_LOGGER_READ_MONTH(date), __KOORI_LOGGER_READ_YEAR(date),
         isPM ? __KOORI_LOGGER_READ_HOUR(ltime) + 12u : __KOORI_LOGGER_READ_HOUR(ltime), __KOORI_LOGGER_READ_MINUTE(ltime), __KOORI_LOGGER_READ_SECOND(ltime)
     );
 }

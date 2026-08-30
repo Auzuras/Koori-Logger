@@ -22,15 +22,6 @@ void Logger::Logging(const Log& _log) const
         output->WriteLog(_log);
 }
 
-void Logger::Assert(bool _condition) const
-{
-    if (_condition)
-        return;
-    
-    KOORI_FATAL(L"Assert", L"Fatal error condition failed!", L"");
-    KOORI_BREAK();
-}
-
 void Logger::RemoveLogOutput(const ALogOutput* _output)
 {
     // Go through each outputs
