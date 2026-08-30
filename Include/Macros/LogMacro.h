@@ -1,6 +1,8 @@
 ﻿#ifndef KOORI_LOGGER_LOG_MACRO_H
 #define KOORI_LOGGER_LOG_MACRO_H
 
+#include <Macros/MacroCommon.h>
+
 #include <Logger.h>
 
 #include <Logging/Log.h>
@@ -49,25 +51,6 @@
 #define __KOORI_LOG_ONE_PARAM(_message) __KOORI_LOG_TWO_PARAMS(LogSeverity::KL_TRACE, _message)
 
 /**
- * @brief __KOORI_COMBINE Combine macro
- * 
- * @param _x Combine the parameters value
- */
-#define __KOORI_COMBINE(_x) _x
-
-/**
- * @brief __KOORI_LOG_INTERNAL Macro, selects the correct macro according to the number of arguments
- *
- * @param _1 First variadic parameter
- * @param _2 Second variadic parameter
- * @param _3 Third variadic parameter
- * @param _4 Fourth variadic parameter
- * @param _name Name of the selected macro
- * @param ... Other parameters
- */
-#define __KOORI_LOG_INTERNAL(_1, _2, _3, _4, _name, ...) _name
-
-/**
  * @brief Variadic KOORI_LOG MACRO, allows to write a custom message with modifiers
  * 
  * @param _level Level of the log
@@ -85,7 +68,7 @@
  * 
  * KOORI_LOG(_level, channel, _message, _details)
  */
-#define KOORI_LOG(...) __KOORI_COMBINE(__KOORI_LOG_INTERNAL(__VA_ARGS__, __KOORI_LOG_FOUR_PARAMS, __KOORI_LOG_THREE_PARAMS, __KOORI_LOG_TWO_PARAMS, __KOORI_LOG_ONE_PARAM)(__VA_ARGS__))
+#define KOORI_LOG(...) __KOORI_COMBINE(__KOORI_VARIADIC_FOUR_PARAMS(__VA_ARGS__, __KOORI_LOG_FOUR_PARAMS, __KOORI_LOG_THREE_PARAMS, __KOORI_LOG_TWO_PARAMS, __KOORI_LOG_ONE_PARAM)(__VA_ARGS__))
 
  /**
   * __KOORI_BASE_LOG_INTERNAL Macro - Simplification for DEBUG level

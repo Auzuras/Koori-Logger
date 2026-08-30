@@ -16,7 +16,8 @@ TEST(LoggerTest, Test)
 {
     const ALogOutput* fileOut = G_DEFAULT_LOGGER->AddLogOutput<FileOutput>();
 
-    KOORI_ASSERT(true == true);
+    KOORI_CHECK(true == false);
+    KOORI_CHECK(true == false, L"The expression is incorect, human error");
 
     KOORI_TRACE(L"Game", L"Player is jumping", L"");
 
