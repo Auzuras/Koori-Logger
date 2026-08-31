@@ -3,7 +3,7 @@
 
 #include <Logging/Log.h>
 #include <Logging/LogSeverity.h>
-#include <Logging/LogChannels.h>
+#include <Logging/LogChannel.h>
 
 /**
  * Abstract base class for logging output
@@ -27,6 +27,17 @@ public:
      * @param _log Reference of the log that should be written
      */
     virtual void WriteLog(const Log& _log) = 0;
+
+    /**
+     * Set the minimum severity of the log
+     * @param _severity New severity of the log
+     */
+    void SetSeverity(const LogSeverity _severity) { p_Severity = _severity; }
+
+    bool CanWriteLog(const Log& _log)
+    {
+        return _log.severity >= p_Severity;
+    }
 
 protected:
 

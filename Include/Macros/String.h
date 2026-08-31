@@ -13,4 +13,4 @@
 
 #define KOORI_TEXT_FORMAT(_expr, ...) std::format(KOORI_STRING(_expr), __VA_ARGS__)
 
-#endif
+#endif //KOORI_LOGGER_STRING_H

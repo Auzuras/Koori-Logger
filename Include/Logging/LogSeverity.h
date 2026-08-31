@@ -7,12 +7,12 @@
 
 enum class LogSeverity : uint8_t
 {
-    KL_TRACE        =   0x0,
-    KL_DEBUG        =   0x1,
-    KL_INFO         =   0x2,
-    KL_WARNING      =   0x3,
-    KL_ERROR        =   0x4,
-    KL_FATAL        =   0x5
+    KL_TRACE        =   0u,
+    KL_DEBUG        =   1u,
+    KL_INFO         =   2u,
+    KL_WARNING      =   3u,
+    KL_ERROR        =   4u,
+    KL_FATAL        =   5u
 };
 
 static inline std::wstring LogSeverityToWString(LogSeverity _severity)

@@ -71,7 +71,6 @@ private:
      * @brief Vector of all the registered log outputs
      */
     std::vector<ALogOutput*> m_LogOutputs{};
-
 };
 
 /**

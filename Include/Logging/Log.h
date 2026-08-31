@@ -5,6 +5,7 @@
 #include <string>
 
 #include <Logging/LogSeverity.h>
+#include <Logging/LogChannel.h>
 #include <Utils/LoggerTime.h>
 
 /**
@@ -25,7 +26,7 @@ public:
      * @param _lineNumber Line of the log
      * @param _time Time of the log
      */
-    Log(LogSeverity _severity, std::wstring& _channel, std::wstring& _message, std::wstring& _details, std::string& _fileName, std::string& _functionName, uint32_t _lineNumber, const LogTime& _time);
+    Log(LogSeverity _severity, LogChannel& _channel, std::wstring& _message, std::wstring& _details, std::string& _fileName, std::string& _functionName, uint32_t _lineNumber, const LogTime& _time);
 
 
     /**
@@ -39,7 +40,7 @@ public:
      * @param _lineNumber Line of the log
      * @param _time Time of the log
      */
-    Log(LogSeverity _severity, std::wstring&& _channel, std::wstring&& _message, std::wstring&& _details, std::string&& _fileName, std::string&& _functionName, uint32_t _lineNumber, const LogTime& _time);
+    Log(LogSeverity _severity, LogChannel& _channel, std::wstring&& _message, std::wstring&& _details, std::string&& _fileName, std::string&& _functionName, uint32_t _lineNumber, const LogTime& _time);
 
     /**
      * Default Log's destructor
@@ -67,7 +68,7 @@ public:
     /**
      * Channel associated to the log
      */
-    std::wstring channel = L"Default";
+    LogChannel channel = LogChannel();
 
     /**
      * Main message of the log

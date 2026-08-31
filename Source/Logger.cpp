@@ -19,7 +19,12 @@ void Logger::Logging(const Log& _log) const
 {
     // Simply go through all the outputs and write the message
     for (ALogOutput* output : m_LogOutputs)
+    {
+        if (!output->CanWriteLog(_log))
+            return;
+
         output->WriteLog(_log);
+    }
 }
 
 void Logger::RemoveLogOutput(const ALogOutput* _output)

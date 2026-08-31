@@ -11,6 +11,8 @@
 #include <Macros/Function.h>
 #include <Macros/Line.h>
 
+#include <Macros/Channel.h>
+
 /**
  * The "overloaded" log macro is inspired by the following example:
  * https://stackoverflow.com/questions/11761703/overloading-macro-on-number-of-arguments
@@ -41,7 +43,7 @@
  * @param _level Level of the log
  * @param _message Message of the log
  */
-#define __KOORI_LOG_TWO_PARAMS(_level, _message) __KOORI_LOG_THREE_PARAMS(_level, L"Default", _message)
+#define __KOORI_LOG_TWO_PARAMS(_level, _message) __KOORI_LOG_THREE_PARAMS(_level, Default, _message)
 
 /**
  * @brief __KOORI_LOG_FOUR_PARAMS Macro, one parameter version of the macro

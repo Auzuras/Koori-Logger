@@ -6,6 +6,7 @@
 #include <Macros/Break.h>
 #include <Macros/Exit.h>
 #include <Macros/String.h>
+#include <Macros/Channel.h>
 
 /**
  * KOORI_CHECK Macro - Will break the program in debug configuration if the expression is evaluated to false
@@ -14,7 +15,7 @@
 #define __KOORI_CHECK(_expr, _details)																								\
 	if (!_expr)																														\
 	{																																\
-		KOORI_WARN(L"Debug", KOORI_TEXT_WFORMAT(Check failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);	\
+		KOORI_WARN(Debug, KOORI_TEXT_WFORMAT(Check failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);	\
 		KOORI_BREAK();																												\
 	}																																\
 
@@ -25,7 +26,7 @@
 #define __KOORI_ASSERT(_expr, _details)																								\
 	if (!_expr)																														\
 	{																																\
-		KOORI_FATAL(L"Debug", KOORI_TEXT_WFORMAT(Assert failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);	\
+		KOORI_FATAL(Debug KOORI_TEXT_WFORMAT(Assert failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);	\
 		KOORI_BREAK();																												\
 		KOORI_EXIT();																												\
 	}	
@@ -37,7 +38,7 @@
 #define __KOORI_ENSURE(_expr, _details)																								\
 	if (!_expr)																														\
 	{																																\
-		KOORI_FATAL(L"Debug", KOORI_TEXT_WFORMAT(Ensure failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);	\
+		KOORI_FATAL(Debug, KOORI_TEXT_WFORMAT(Ensure failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);	\
 		KOORI_BREAK();																												\
 		KOORI_EXIT();																												\
 	}																																\				
