@@ -11,8 +11,6 @@
 
 class LoggerTest : public testing::Test {};
 
-#include <cassert>
-
 KOORI_DECLARE_LOG_CHANNEL(Game);
 KOORI_DECLARE_LOG_CHANNEL(Engine);
 KOORI_DECLARE_LOG_CHANNEL_CHILD(Animation, Engine);

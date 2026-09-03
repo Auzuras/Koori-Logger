@@ -15,9 +15,9 @@
 #define __KOORI_CHECK(_expr, _details)																								\
 	if (!_expr)																														\
 	{																																\
-		KOORI_WARN(Debug, KOORI_TEXT_WFORMAT(Check failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);	\
+		KOORI_WARN(Debug, KOORI_TEXT_WFORMAT(Check failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);		\
 		KOORI_BREAK();																												\
-	}																																\
+	}
 
 /**
  * KOORI_ASSERT Macro - Will break and then stop the program in debug configuration if the expression is evaluated to false
@@ -26,10 +26,10 @@
 #define __KOORI_ASSERT(_expr, _details)																								\
 	if (!_expr)																														\
 	{																																\
-		KOORI_FATAL(Debug KOORI_TEXT_WFORMAT(Assert failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);	\
+		KOORI_FATAL(Debug KOORI_TEXT_WFORMAT(Assert failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);		\
 		KOORI_BREAK();																												\
 		KOORI_EXIT();																												\
-	}	
+	}
 
 /**
  * KOORI_ENSURE Macro - Will break and then stop the programm in every configuration if the expression is evaluated to false
@@ -41,7 +41,7 @@
 		KOORI_FATAL(Debug, KOORI_TEXT_WFORMAT(Ensure failed: "{}" expression is invalid!, KOORI_TEXT_WFORMAT(_expr)), _details);	\
 		KOORI_BREAK();																												\
 		KOORI_EXIT();																												\
-	}																																\				
+	}			
 
 #define __KOORI_CHECK_TWO_PARAMS(_expr, _details) __KOORI_CHECK(_expr, _details)
 

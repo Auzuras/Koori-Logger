@@ -10,10 +10,11 @@ public:
     LogChannel(std::wstring _name, LogChannel* _parent = nullptr);
     
     std::wstring GetName() const { return m_Name; }
-    std::wstring GetFullName() const;
+    std::wstring GetFullName() const { return m_FullName; }
 
 private:
     std::wstring m_Name = L"Default";
+    std::wstring m_FullName = L"Default";
     LogChannel* m_Parent = nullptr;
 };
 
