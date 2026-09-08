@@ -52,7 +52,7 @@ public:
         KL_COLOR_TARGET_BACKGROUND =   0x1
     };
 
-    enum class Attribute : uint8_t
+    enum class Attribute : uint16_t
     {
         KL_COLOR_ATTRIBUTE_NONE                 =   0,
         KL_COLOR_ATTRIBUTE_BOLD                 =   0x1 << 1,
